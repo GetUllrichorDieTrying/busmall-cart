@@ -33,33 +33,32 @@ function handleSubmit(event) {
   event.preventDefault();
   // Do all the things ...
   addSelectedItemToCart();
+  updateCounter();
   cart.saveToLocalStorage();
   updateCartPreview();
   
 }
-updateCounter();
 // EVENT HANDLER*****************************************
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
-  // TODO: using those, add one item to the Cart
+  // TODO: using those, add one item to the Cart ****COMPLETE
   let selectedItem = document.getElementById('items').value;
   let selectedQuantity = document.getElementById('quantity').value;
   cart.addItem(selectedItem, selectedQuantity);
 }
 
-// TODO: Update the cart count in the header nav with the number of items in the Cart
+// TODO: Update the cart count in the header nav with the number of items in the Cart *****COMPLETE
 function updateCounter() { 
   const counterElem = document.getElementById('itemCount');
   const cartCounterElem = document.createElement('p');
   counterElem.appendChild(cartCounterElem);
   let cartNumber = 0;
-  
-  for (let i = 0; 0<4; i++){
+  for (let i = 0; i < cart.items.length; i++){
     cartNumber++;
-    
   }
+  // console.log(cart.items.length);
   cartCounterElem.textContent = cartNumber;
 }
 
